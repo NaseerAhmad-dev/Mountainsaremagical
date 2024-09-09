@@ -1,0 +1,124 @@
+<section class="contact-us-wrapper mx-auto row bg-white">
+    <div class="mx-auto gap-3 py-3 d-flex flex-wrap justify-content-center align-items-start">
+        <div class="col-md-5 d-flex flex-column gap-3">
+            <h3 class="fw-bolder col-12 px-0 mb-md-2 m-0 contact-us-header">Contact Us</h3>
+            <div class="d-flex justify-content-between flex-wrap">
+                <div>
+                    <h4 class="contact-us-header fw-light my-1">Call Us on:</h4>
+                    <div class="d-flex gap-3 mb-1">
+                        <div><span><i class="pi pi-phone i-class font-bold" style="font-size: 1rem"></i></span></div>
+                        <p class="m-0 i-class font-500"> +91 9596354066</p>
+                    </div>
+                    <div class="d-flex gap-3 mb-1">
+                        <div><i class="pi pi-phone i-class font-bold" style="font-size: 1rem"></i></div>
+                        <p class="m-0 i-class font-500"> +91 9596354066</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="contact-us-header fw-light my-1">Write Us on:</h4>
+                    <div class="d-flex">
+                        <div class="d-flex gap-3">
+                            <div><i class="pi pi-at i-class font-bold" style="font-size: 1rem"></i></div>
+                            <p class="m-0 i-class font-500">mountainsaremagica <i class="pi pi-at"
+                                    style="font-size: 1rem"></i> gmail.com</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h4 class="contact-us-header fw-light my-1">Find our Office:</h4>
+                <div class="d-flex mb-1">
+                    <div class="d-flex gap-3">
+                        <div><i class="pi pi-map-marker i-class font-bold" style="font-size: 1rem"></i></div>
+                        <p class="m-0 i-class font-500"> Kangan Ganderbal</p>
+                    </div>
+                </div>
+                <app-map-component></app-map-component>
+            </div>
+
+
+        </div>
+        <div class="d-flex flex-column flex-wrap justify-content-center align-items-center">
+            <h3 class="col-12 px-0 mb-md-2 m-0 contact-us-header ">Fill the Enquiry we will take care rest</h3>
+            <form [formGroup]="contactFrom" class="w-100 row d-flex flex-column align-items-center"
+                (ngSubmit)="onSubmit()">
+                <div class="d-flex align-items-center justify-content-center flex-column p-0 ">
+                    @for (control of formData; track $index) {
+                    @switch (control.control_type) {
+
+                    @case ('text') {
+                    <div class="col-12 mb-2">
+                        <label for="disabledTextInput" class="form-label">{{control.control_label}}</label>
+                        <input type="text" id="TextInput"
+                            [ngClass]="{'is-valid': !isInvalid(control.control_name),'is-invalid':(isInvalid(control.control_name) && submitted)}" class="form-control"
+                            [placeholder]="control.placeholder" [formControlName]="control.control_name">
+                        @if(isControlInvalid(control.control_name)){
+                        <div class="alert p-1 mt-1 alert-danger mb-0">
+                            {{getErrorType(control.control_name)}}
+                        </div>
+                        }
+                    </div>
+
+                    }
+                    @case ('number') {
+                    <div class="col-12 mb-2">
+                        <label for="disabledTextInput" class="form-label">{{control.control_label}}</label>
+                        <input type="text" id="phone" class="form-control"
+                            [ngClass]="{'is-valid': !isInvalid(control.control_name),'is-invalid':(isInvalid(control.control_name) && submitted)}"
+                            [placeholder]="control.placeholder" [formControlName]="control.control_name">
+                        @if(isControlInvalid(control.control_name)){
+                        <div class="alert p-1 mt-1 alert-danger mb-0">
+                            {{getErrorType(control.control_name)}}
+                        </div>
+                        }
+                    </div>
+
+                    }
+                    @case ('textarea') {
+                    <div class="col-12 mb-2">
+                        <label for="exampleFormControlTextarea1" class="form-label">{{control.control_label}}</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                            [ngClass]="{'is-valid': !isInvalid(control.control_name) , 'is-invalid':(isInvalid(control.control_name) && submitted)}" rows="3"
+                            [placeholder]="control.placeholder" [formControlName]="control.control_name"></textarea>
+                        @if(isControlInvalid(control.control_name)){
+                        <div class="alert p-1 mt-1 alert-danger mb-0">
+                            {{getErrorType(control.control_name)}}
+                        </div>
+                        }
+                    </div>
+                    }
+                    @case ('email') {
+                    <div class="col-12 mb-2">
+                        <label for="exampleFormControlInput1" class="form-label">{{control.control_label}}</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            [ngClass]="{'is-valid': !isInvalid(control.control_name),'is-invalid':(isInvalid(control.control_name) && submitted)}"
+                            [placeholder]="control.placeholder" [formControlName]="control.control_name">
+                        @if(isControlInvalid(control.control_name)){
+                        <div class="alert p-1 mt-1 alert-danger mb-0">
+                            {{getErrorType(control.control_name)}}
+                        </div>
+                        }
+                    </div>
+                    }
+                    }
+                    }
+                </div>
+                <div class="d-flex justify-content-center px-2">
+                    <button type="submit"
+                        class="col-12 cursor-pointer col-md-6 mb-2 fw-bolder rounded bg-white submit-button"
+                        (click)="submitted = true;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+    <p-toast 
+        [life]="10000"
+        [showTransformOptions]="'translateY(100%)'" 
+        [showTransitionOptions]="'1200ms'" 
+        [hideTransitionOptions]="'1200ms'" 
+        [showTransformOptions]="'translateX(100%)'" />
+        

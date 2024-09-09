@@ -1,0 +1,15 @@
+
+
+
+<div class="row mx-auto">
+    <div *ngFor="let place of places"
+         pAnimateOnScroll enterClass="zoomin" leaveClass="fadeout"
+         class="col-12 col-md-4 mx-auto d-flex flex-column align-items-center justify-content-center box border-0 shadow-0 mb-2 animation-duration-1000 text-center">
+      <img [src]="place.ImgUrl" class="card-img-top" alt="{{ place.name }}" style="height: 300px; width: 300px; object-fit: cover;">
+      <div class="py-2 bg-green w-100">
+        <h5 class="text-primary">{{ place.name }}</h5>
+      </div>
+    </div>
+  </div>
+  
+  

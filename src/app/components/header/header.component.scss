@@ -1,0 +1,60 @@
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    margin: 0 auto;
+    height: 80px;
+    background-color: rgb(229 231 235/1);
+    border-bottom: 0.1rem solid rgba(9, 30, 66, 0.13);
+    box-shadow: 0 -0.1rem 0.3rem rgba(9, 30, 66, 0.5);
+    .nav-items{
+      font-size: 16px;
+      font-weight: 500;
+       ul a {
+            list-style: none;
+            color: #000000
+        }
+
+    }
+}
+.hover-class{
+  color:  chocolate;
+}
+
+.nav-items ul a li:hover{
+       @extend .hover-class
+}
+.nav-link{
+    font-size: 16px;
+    color:#50586A;
+}
+
+.custom-style {
+    background-color: #FFF;
+    border-bottom: 0.1rem solid rgba(9, 30, 66, 0.13);
+    box-shadow: 0 -0.1rem 0.3rem rgba(9, 30, 66, 0.5);/* Set the background color to white */
+  }
+  .navbar {
+    background-color: white !important; /* Set the background color to white */
+    
+  }
+  .navbar .nav-item :hover{
+   cursor: pointer;
+  }
+
+
+  .navbar-light .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1); /* Optional: Add a light border around the toggler */
+  }
+
+  .navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.55)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+
+  .li-link{
+    font-size: 16px;
+    color:#50586A;
+  }

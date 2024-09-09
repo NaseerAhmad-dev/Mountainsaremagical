@@ -1,0 +1,33 @@
+.chaticon {
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it's on top of other elements */
+    animation: bounce 1.5s ease-in-out infinite; /* Faster and smoother animation */
+    background: linear-gradient(45deg, chocolate, gray); /* Apply background gradient */
+    padding: 10px; /* Add padding for better content alignment */
+    border-radius: 10px; /* Rounded corners for a smoother look */
+}
+
+@media (max-width: 767px) {
+    .chaticon {
+        bottom: 10%; /* Adjust position for mobile */
+        right: 5%; /* Adjust position for mobile */
+    }
+}
+
+/* Enhanced bounce animation keyframes */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0); /* Start at the original position */
+    }
+    40% {
+        transform: translateY(-20px); /* Move up more */
+        transform: translateX(-10px);/* Move right more */
+    }
+    60% {
+        transform: translateY(-10px); /* Move up less */
+    }
+
+}

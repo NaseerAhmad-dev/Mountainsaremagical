@@ -1,0 +1,115 @@
+@if(!loading){
+<div class="row mx-auto package-container">
+  <div class="d-flex top-row-contianer flex-wrap mx-auto p-3 ">
+    <div class="card col-md-6 border-0 left-top-galleria">
+      <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }"
+        [numVisible]="5">
+        <ng-template pTemplate="item" let-item>
+          <img [src]="item.itemImageSrc" style="width: 100%;" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+          <div class="grid grid-nogutter justify-content-center">
+            <img [src]="item.thumbnailImageSrc" />
+          </div>
+        </ng-template>
+      </p-galleria>
+    </div>
+    <div class="col-md-6 border-0 right-top-highlights rounded" id="description">
+      <div class="title-wrapper mt-md-0 mt-sm-2">
+        <span class="mt-0  pack-title d-flex justify-content-center align-items-center  font-semibold text-xl"
+          [ngStyle]="{backgroundColor:'var(--highlight-bg)', color: 'var(--highlight-text-color)', borderRadius: 'var(--border-radius)', padding: '3rem'}">
+          {{pack.name}} - Highlights</span>
+      </div>
+      <p-divider type="solid" />
+      <div class="pack-description mt-4 secondary fw-large">
+        {{pack.description}}
+      </div>
+
+      <p-divider type="solid" />
+
+      <div class="d-flex flex-wrap  align-items-center mt-4">
+        <div class="d-flex justify-content-center align-items-start gap-1 flex-column indication">
+          <i class="pi pi-calendar" style="font-size: 1.5rem"></i>
+          <div class="mt-0 info font-semibold text-xl">
+            <span> {{pack.days}} D - </span>
+            <span> {{pack.nights}}N</span>
+          </div>
+        </div>
+        <p-divider layout="vertical" />
+        <div class="d-flex flex-column align-items-start indication">
+          <i class="pi pi-users mb-1" style="font-size: 1.5rem ; color: 'var(--highlight-text-color)'"></i>
+          <div class="mt-0 font-semibold text-xl" [ngStyle]="{color: 'var(--surface-ground-pink-400)'}">
+            <span class="m-0">1</span>
+          </div>
+        </div>
+        <p-divider layout="vertical" />
+        <div class="d-flex flex-column align-items-start indication">
+          <i class="pi pi-indian-rupee mb-1" style="font-size: 1.5rem ; color: 'var(--highlight-text-color)'"></i>
+          <div class="mt-0 font-semibold text-xl" [ngStyle]="{color: 'var(--surface-ground-pink-400)'}">
+            <span class="m-0">{{pack.price}}</span>
+          </div>
+        </div>
+        <p-divider layout="vertical" />
+        <div class="d-flex flex-column align-items-start indication">
+          <i class="pi pi-shop mb-1" style="font-size: 1.5rem ; color: 'var(--highlight-text-color)'"></i>
+          <div class="mt-0 font-semibold text-xl" [ngStyle]="{color: 'var(--surface-ground-pink-400)'}">
+            <p-badge [value]="pack.packBadge" [severity]="getSeverity(pack.packBadge)" />
+          </div>
+        </div>
+      </div>
+      <p-divider type="solid" />
+      <div class="Destionation mt-4 d-flex flex-wrap flex-column">
+        <div class=" mb-3 ">
+          <p-tag [value]="'Destionations Covered'" [severity]="'warning'"
+            class="mr-2 mb-2 mt-0 font-semibold text-xl warning" />
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+          @for(destination of pack.destinations; track destination){
+          <p-tag [value]="destination |titlecase " [severity]="'success'" class="mr-2" />
+          }
+        </div>
+      </div>
+      <p-divider type="solid" />
+    </div>
+  </div>
+  <div class="d-flex row mx-auto flex-wrap">
+    <div class="mt-4 mx-auto col-md-5 secondary rounded p-0 ">
+      <h2 class="warning d-flex justify-content-center fw-bold mb-3"
+        [ngStyle]="{backgroundColor:'var(--bs-info-bg-subtle)', color: 'var(--bs-info)', borderRadius: 'var(--border-radius)', padding: '1rem'}">
+        TRIP Itinerary</h2>
+
+      <p-stepper orientation="vertical" class="bg-white stepper-container">
+        @for(day of pack.activities; track day;){
+        <p-stepperPanel [header]="day.day |titlecase">
+          <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+            <div class="flex flex-column">
+              <div class=" flex-auto flex align-items-center font-medium">
+                <ul class="m-0 p-0">
+                  @for(activity of day.dayActivity; track activity){
+                  <li class="pb-1">{{activity}}</li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </ng-template>
+        </p-stepperPanel>
+        }
+      </p-stepper>
+
+    </div>
+    <div class="trip-inclusions col-md-5 p-0 mt-4 mx-auto rouded ">
+      <h2 class="warning d-flex justify-content-center fw-bold mb-3"
+        [ngStyle]="{backgroundColor:'var(--bs-info-bg-subtle)', color: 'var(--bs-info)', borderRadius: 'var(--border-radius)', padding: '1rem'}">
+        TRIP Inclusions</h2>
+      @for (inclusion of pack.inclusions; track inclusion){
+      <div class="d-flex align-items-center bg-white px-3">
+        <i class="pi pi-check-circle mr-4 " style="font-size: 1rem; color:green"></i>
+        <p class="font-medium inclusion-text rounded px-3 py-2">{{inclusion |titlecase }}</p>
+      </div>
+
+      }
+    </div>
+  </div>
+
+</div>
+}

@@ -1,0 +1,42 @@
+.review-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+.main-wrapper{
+    background-color:  #dff3f7;
+}
+
+[class^="number-slide"],
+[class*=" number-slide"] {
+  display: flex;
+  height: 300px;
+  max-height: 100vh;
+}  
+svg{
+    height: 20px;
+    width: 20px;
+}
+.btn-wrapper{
+    padding: 5px;
+    background-color: none;
+    height: 50px;
+    width: 50px;
+    border: 2px solid #454B59;
+}
+.card{
+    background-color: #FCFCFD;
+}
+.client-heading{
+    color: var(--Cool-Gray-80, #454B59);
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 48px; /* 120% */
+}
+.location-name{
+    color:#454B59;
+}
+
+
+

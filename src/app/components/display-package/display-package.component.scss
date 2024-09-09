@@ -1,0 +1,35 @@
+.package-container {
+    margin-top: 80px;
+}
+
+.pack-title {
+    height: 10px;
+}
+
+#description {
+    background-color: white;
+}
+
+.stepper-container {
+    padding: 18px;
+}
+.inclusion-text{
+    color: #4b5563;
+}
+
+@media (max-width: 768px) {
+    .package-container {
+        margin-top: 0px;
+    }
+    #description {
+        background-color: none;
+        padding: 4px;
+    }
+    .stepper-container {
+        padding: 3px;
+    }
+    .indication{
+        margin-bottom: 10px;
+    }
+    
+}

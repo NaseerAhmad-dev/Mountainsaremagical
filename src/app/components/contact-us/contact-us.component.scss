@@ -1,0 +1,52 @@
+.submit-button {
+    border: 2px solid #A5AEBB;
+    padding: 8px;
+    font-size: 18px;
+    height: 50px;
+    color: #50586A;
+}
+
+.container {
+    padding: 8px;
+}
+
+.contact-us-header {
+    color: var(--Cool-Gray-70, #50586A);
+    font-family: Poppins;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+}
+
+.form-label {
+    color: var(--Cool-Gray-60, #5D687D);
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.16px;
+}
+
+.form-control {
+    border-radius: 4px;
+    display: flex;
+    padding: 12px;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border: 2px solid var(--Cool-Gray-40, #A5AEBB);
+
+
+}
+
+input::placeholder {
+    color: var(--Cool-Gray-60, #5D687D);
+    font-size: 16px;
+}
+
+.i-class {
+    color: #5D687D;
+}
